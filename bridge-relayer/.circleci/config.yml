@@ -1,0 +1,113 @@
+version: 2.1
+
+# https://circleci.com/docs/2.0/reusing-config/#invoking-reusable-commands
+commands:
+  build-project:
+    description: "Build the project"
+    steps:
+      - run: |
+          yarn build
+  prepare-build-tags:
+    description: "Prepare ECR/ECS build tags"
+    steps:
+      - run: |
+          cat > .build-tags \<<EOF
+          DOCKER_TAG="$(date -u +%Y%m%d%H%M%S)"
+          GIT_COMMIT="$(git rev-parse HEAD)"
+          CIRCLE_BUILD_NUM="$CIRCLE_BUILD_NUM"
+          EOF
+
+          cat .build-tags
+
+          if [[ "${CIRCLE_BRANCH}" == "master" ]]; then
+              echo 'export DEPLOY_CONTEXT=beta' >> $BASH_ENV
+          elif [[ "${CIRCLE_BRANCH}" == "develop" ]]; then
+              echo 'export DEPLOY_CONTEXT=stage' >> $BASH_ENV
+          elif [[ "${CIRCLE_BRANCH}" =~ "feature/" ]]; then
+              echo 'export DEPLOY_CONTEXT=stage' >> $BASH_ENV
+          else
+              echo "${CIRCLE_BRANCH} does not correspond to any DEPLOY_CONTEXT"
+          fi
+
+          SOURCE_COMMIT=$(git rev-parse --short HEAD)
+          echo "export SOURCE_COMMIT=$SOURCE_COMMIT" >> $BASH_ENV
+
+          source $BASH_ENV
+  update-ecs-service:
+    description: "Update ECS service"
+    parameters:
+      image:
+        description: "Path to ECR image"
+        type: string
+      tag:
+        description: "ECR image tag"
+        type: string
+      cluster:
+        description: "ECS cluster"
+        type: string
+      service:
+        description: "ECS service"
+        type: string
+      timeout:
+        description: "ECS Service update timeout"
+        type: integer
+        default: 180
+    steps:
+      - run: |
+          IMAGE=<< parameters.image >>
+          TAG=<< parameters.tag >>
+
+          if [[ "${CIRCLE_BRANCH}" == "master" ]]; then
+            echo "----- UPDATING ECS SERVICE IN $TAG -------"
+            scripts/ecs-deploy.sh -c << parameters.cluster >> -n << parameters.service >> -i ${IMAGE}:${TAG} --use-latest-task-def -t << parameters.timeout >>
+          elif [[ "${CIRCLE_BRANCH}" == "develop" ]]; then
+            echo "----- UPDATING ECS SERVICE IN $TAG -------"
+            scripts/ecs-deploy.sh -c << parameters.cluster >> -n << parameters.service >> -i ${IMAGE}:${TAG} --use-latest-task-def -t << parameters.timeout >>
+          elif [[ "${CIRCLE_BRANCH}" =~ "feature/" ]]; then
+            echo "----- UPDATING ECS SERVICE IN $TAG -------"
+            scripts/ecs-deploy.sh -c << parameters.cluster >> -n << parameters.service >> -i ${IMAGE}:${TAG} --use-latest-task-def -t << parameters.timeout >>
+          else
+            echo "----- NO UPDATE -------"
+            echo "${CIRCLE_BRANCH} does not correspond to any deployment environment"
+          fi
+
+orbs:
+  node: circleci/node@4.2.1 # https://circleci.com/developer/orbs/orb/circleci/node
+  aws-ecr: circleci/aws-ecr@7.0.0 # https://circleci.com/developer/orbs/orb/circleci/aws-ecr
+  aws-cli: circleci/aws-cli@2.0.0 # https://circleci.com/developer/orbs/orb/circleci/aws-cli
+
+jobs:
+  deploy-bridge-relayer:
+    resource_class: large
+    docker:
+      - image: circleci/node:16
+    environment:
+      AWS_ECR_ACCOUNT_URL: 139922743784.dkr.ecr.eu-central-1.amazonaws.com
+      AWS_ECR_REPOSITORY: bridge-relayer
+      AWS_DEFAULT_REGION: eu-central-1
+      AWS_DEFAULT_OUTPUT: json
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 19.03.13
+      - node/install-packages:
+          pkg-manager: yarn
+      - prepare-build-tags
+      - build-project
+      - aws-ecr/build-and-push-image:
+          checkout: false
+          region: AWS_DEFAULT_REGION
+          repo: $AWS_ECR_REPOSITORY
+          path: .
+          tag: "$CIRCLE_BUILD_NUM,$SOURCE_COMMIT,$DEPLOY_CONTEXT"
+      - update-ecs-service:
+          image: "${AWS_ECR_ACCOUNT_URL}/${AWS_ECR_REPOSITORY}"
+          tag: "$DEPLOY_CONTEXT"
+          cluster: "$DEPLOY_CONTEXT-nsfw-cluster"
+          service: "$DEPLOY_CONTEXT-bridge-relayer"
+
+workflows:
+  version: 2
+  deploy_services:
+    jobs:
+      - deploy-bridge-relayer

@@ -1,0 +1,16 @@
+# => RPC endpoints
+export MONGO_URI=mongodb://localhost/nsfw_bridge
+
+# => RPC endpoints
+export ETH_RPC_URL='https://rinkeby.infura.io/v3/c9e9d465b7134eeb9a38fdc1e7cafe0f'
+export BSC_RPC_URL='https://data-seed-prebsc-1-s1.binance.org:8545/'
+
+# => Bridge contracts
+export BSC_ETH_BRIDGE_CONTRACT=0xb75032C551f27676C4a35A6094cAFBA9f812Ab29
+export ETH_BSC_BRIDGE_CONTRACT=0xEE28F74d52bA21ed89e16Fc492CDeD846E3dA254
+
+# => Relayer account, should contain enough BNB,ETH to pay for transfers
+export RELAYER_PRIVATE_KEY=''
+
+# FIXME: Find out what this is used for
+export API_KEY='API_KEY_FOR_BRIDGE'

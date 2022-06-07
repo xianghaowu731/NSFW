@@ -1,0 +1,16 @@
+abi/
+yarn-error.log
+cache/
+.envrc
+artifacts/
+.openzeppelin/
+node_modules/
+typechain/
+types/
+typechain-types/
+.openzeppelin/
+coverage*
+.env
+secret.json
+yarn.lock
+hardhat.config.ts

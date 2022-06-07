@@ -1,0 +1,18 @@
+# This file is used by <https://direnv.net/>
+#
+# Use this to bootstrap your environment
+#
+#   cp .envrc.example .envrc
+#
+export TS_NODE_TRANSPILE_ONLY=1
+export TS_NODE_FILES=true
+
+# -- Toggle verbose mode
+# export HARDHAT_VERBOSE=true
+export HARDHAT_MAX_MEMORY=4096
+export HARDHAT_SHOW_STACK_TRACES=true
+export DEV_MNEMONIC="test test test test test test test test test test test junk"
+export BRIDGE_RELAYER_PRIVATE_KEY=
+export DEPLOYER_PRIVATE_KEY=
+export ETHERSCAN_API_KEY=
+export IS_GAS_REPORTED_ENABLED=true

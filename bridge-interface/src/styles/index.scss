@@ -1,0 +1,33 @@
+@import "~./fonts.scss";
+
+body {
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media (max-width: 1218px) {
+    .container {
+        width: unset;
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0 15px;
+    }
+}
+
+::selection {
+    background: #7230FF;
+    color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}

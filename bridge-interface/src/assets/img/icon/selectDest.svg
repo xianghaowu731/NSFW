@@ -1,0 +1,31 @@
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_1342:6495" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="28" height="28">
+<circle cx="14" cy="14" r="14" fill="#EEEFF6"/>
+</mask>
+<g mask="url(#mask0_1342:6495)">
+<g style="mix-blend-mode:multiply">
+<circle cx="4.66602" cy="7" r="14" fill="#FF8058"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="12.834" cy="24.5" r="14" fill="#4859CF"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="25.666" cy="16.333" r="7" fill="#7EB8FC"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="21.5827" cy="5.24967" r="9.91667" fill="#E664D9"/>
+</g>
+</g>
+<circle cx="14" cy="14" r="14" fill="#2892B4"/>
+<mask id="mask1_1342:6495" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="28" height="28">
+<circle cx="14" cy="14" r="14" fill="#EEEFF6"/>
+</mask>
+<g mask="url(#mask1_1342:6495)">
+<g style="mix-blend-mode:multiply">
+<rect x="14.3535" y="11.5039" width="20" height="21" transform="rotate(45 14.3535 11.5039)" fill="#2776ED"/>
+</g>
+<g style="mix-blend-mode:color-dodge">
+<rect x="8.875" y="-3" width="22.7282" height="23.8646" transform="rotate(45 8.875 -3)" fill="#CE1AA6"/>
+</g>
+</g>
+</svg>

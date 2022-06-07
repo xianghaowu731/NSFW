@@ -1,0 +1,29 @@
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="10" fill="#EEEFF6"/>
+<mask id="mask0_1129:2844" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+<circle cx="10" cy="10" r="10" fill="#EEEFF6"/>
+</mask>
+<g mask="url(#mask0_1129:2844)">
+<g style="mix-blend-mode:multiply">
+<circle cx="3.33325" cy="5" r="10" fill="#FF8058"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="9.16675" cy="17.5" r="10" fill="#4859CF"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="18.3333" cy="11.667" r="5" fill="#7EB8FC"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="15.4166" cy="3.75033" r="7.08333" fill="#E664D9"/>
+</g>
+</g>
+<circle cx="10" cy="10" r="10" fill="#E84142"/>
+<g clip-path="url(#clip0_1129:2844)">
+<path d="M12.8007 10.2426C13.0758 9.78897 13.5196 9.78897 13.7947 10.2426L15.5076 13.1138C15.7827 13.5674 15.5576 13.9375 15.0075 13.9375H11.5566C11.0127 13.9375 10.7877 13.5674 11.0565 13.1138L12.8007 10.2426ZM9.48737 4.71524C9.76244 4.26159 10.2 4.26159 10.4751 4.71524L10.8565 5.37184L11.7567 6.88202C11.9755 7.3118 11.9755 7.81917 11.7567 8.24895L8.73719 13.2451C8.46212 13.651 8.00576 13.9077 7.49939 13.9375H4.99252C4.44238 13.9375 4.21733 13.5734 4.4924 13.1138L9.48737 4.71524Z" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0_1129:2844">
+<rect width="11.25" height="11.25" fill="white" transform="translate(4.375 4.375)"/>
+</clipPath>
+</defs>
+</svg>

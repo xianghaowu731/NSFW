@@ -1,0 +1,43 @@
+@media (max-width:767px) {
+    .sendNftContBox {
+        flex-direction: column;
+    }
+
+.modalSelectPopupSize{
+    margin-top: 0px !important;
+}
+
+    .sendNftContBox> div {
+        width: 100%;
+        padding: 0;
+    }
+
+    .nftSelected {
+        margin-bottom: 20px;
+    }
+
+    .tabTitle h3 {
+        font-size: 16px;
+    }
+
+    .crosChainSelect {
+        padding: 10px 4px;
+    }
+
+    .mainContainer.container {
+        margin-top: 0px;
+    }
+
+    .modal-dialog {
+        top: 140px;
+    }
+
+    .modal-body {
+        padding-top: 0 !important;
+    }
+
+    .navBrand a.logo .img-fluid {
+        max-width: 82%;
+    }
+
+}

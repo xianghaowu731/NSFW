@@ -1,0 +1,32 @@
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1035:4440)">
+<path d="M10.1029 7.60329L13.5017 4.20585L16.902 7.60605L18.8785 5.62813L13.5017 0.25L8.125 5.62675L10.1029 7.60329Z" fill="white"/>
+<path d="M4.75 9.00087L6.72654 7.02295L8.70447 9.00087L6.72654 10.9774L4.75 9.00087Z" fill="white"/>
+<path d="M10.1029 10.3969L13.5017 13.7957L16.902 10.3955L18.8799 12.3707L13.5031 17.7488L8.125 12.3748L10.1029 10.3969Z" fill="white"/>
+<path d="M18.2959 9.00087L20.2724 7.02295L22.2504 8.99949L20.2724 10.9788L18.2959 9.00087Z" fill="white"/>
+<path d="M15.5082 8.99914L13.5026 6.99219L12.0195 8.47528L11.8481 8.6453L11.4971 8.99637L13.5026 11.0006L15.5082 9.00052V8.99914Z" fill="white"/>
+</g>
+<circle cx="14" cy="14" r="14" fill="#EEEFF6"/>
+<mask id="mask0_1035:4440" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="28" height="28">
+<circle cx="14" cy="14" r="14" fill="#EEEFF6"/>
+</mask>
+<g mask="url(#mask0_1035:4440)">
+<g style="mix-blend-mode:multiply">
+<circle cx="4.66699" cy="7" r="14" fill="#FF8058"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="12.833" cy="24.5" r="14" fill="#4859CF"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="25.667" cy="16.333" r="7" fill="#7EB8FC"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<circle cx="21.5837" cy="5.24967" r="9.91667" fill="#E664D9"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_1035:4440">
+<rect width="17.5" height="17.5" fill="white" transform="translate(4.75 0.25)"/>
+</clipPath>
+</defs>
+</svg>
